@@ -40,7 +40,7 @@ def clear_players():
         list_to_delete = Character_list.Players[i+1]
         list_to_delete.clear()
         Character_list.Players[i+1] = list_to_delete
-        lbl_char_num = tk.Label(master = frm_character, text="                                   ", width = 15, wieght = 1)
+        lbl_char_num = tk.Label(master = frm_character, text="                                   ", width = 15)
         #Get rid of the last played characters when clearing the used character list
         if i < 4:
             lbl_char_num.grid(row=i, column=1, sticky="w")

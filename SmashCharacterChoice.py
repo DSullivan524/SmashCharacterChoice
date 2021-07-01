@@ -21,17 +21,10 @@ def choose_character(curr_player):
     else:
         #Continuously loop and select a new character until one that
         #has not been played before has been selected
-        while repeated_character == True:
-            repeated_character = False 
-            #Check to see if that character has been played before
-            for i in range(len(Character_list.Players[curr_player])):
-                if curr_player_list[i] == potential_character:
-                    repeated_character = True
-                    #If the character has been played before, then select a new character
-                    potential_character = random.randint(1,81)
+        while potential_character in curr_player_list:
+            potential_character = random.randint(1,81)
         curr_player_list.append(potential_character)
         Character_list.Players[curr_player] = curr_player_list
-        print(range(len(Character_list.Players[curr_player])))
         return potential_character
     
 #Clears all players        
@@ -41,7 +34,6 @@ def clear_players():
         list_to_delete.clear()
         Character_list.Players[i+1] = list_to_delete
         lbl_char_num = tk.Label(master = frm_character, text="                                   ", width = 15)
-        #Get rid of the last played characters when clearing the used character list
         if i < 4:
             lbl_char_num.grid(row=i, column=1, sticky="w")
         else:
@@ -55,6 +47,12 @@ def character_select():
     global frm_character
     amount_lines = int(ent_first_name.get())
     character_num = 0
+    for j in range(8):
+            lbl_char_num = tk.Label(master = frm_character, text="                                   ", width = 15)
+            if j < 4:
+                lbl_char_num.grid(row=j, column=1, sticky="w")
+            else:
+                lbl_char_num.grid(row=j - 4, column=4, sticky="w")
     #This will put the characters as labels for each Player
     for i in range(amount_lines):
         player_num = str(i + 1)
@@ -65,15 +63,10 @@ def character_select():
             lbl_player_num.grid(row=i - 4, column=3, sticky="e")
         #lbl_player_num.grid(row=i, column=0, sticky="w")   
         #Get rid of the previous character
-        lbl_char_num = tk.Label(master = frm_character, text="                                   ", width = 15)
-        if i < 4:
-            lbl_char_num.grid(row=i, column=1, sticky="w")
-        else:
-            lbl_char_num.grid(row=i - 4, column=4, sticky="w")
+        
         #lbl_char_num.grid(row=i, column=1, sticky="e")
         
         character_num = choose_character(i+1)
-        print("Character num", character_num)
         #Use the Dictionary present in the Character List file to select the corresponding character
         lbl_char_num = tk.Label(master = frm_character, text=Character_list.Characters[character_num])
         if i < 4:
@@ -110,7 +103,6 @@ frm_character.pack(fill=tk.X)
 lbl_player_num = tk.Label()
 lbl_char_num = tk.Label()
 
-#Set up the 8 possible players
 for i in range(4):
         player_num = str(i + 1)
         lbl_player_num = tk.Label(master=frm_character, text=("Player", player_num))
@@ -120,6 +112,7 @@ for i in range(4):
         player_num = str(i + 5)
         lbl_player_num = tk.Label(master=frm_character, text=("Player", player_num))
         lbl_player_num.grid(row=i, column=3, sticky="w")
+
 
 
 # Start the application

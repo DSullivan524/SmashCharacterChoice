@@ -12,6 +12,7 @@ dictionaries in each Character list file and change the random functions in each
 file to include 1 through 85
 
 
+
 The original SmashCharacterChoice program has each of the 8 available players set up as their 
 own unique sets. There is an entry field that will ask how many players are currently playing to
 determine how many characters to  be chosen When the program is executed each player currently 
@@ -21,6 +22,7 @@ played all 81 characters only their list will be cleared, no other player will h
 One drawback to this program is if a new player wanted to take an existing player's position, they 
 would not be able to playany characters played by the existing player. The clear button will clear 
 the played character listfor each player regardless of how many they have already played.
+
 
 
 The improved SmashCharacterChoice has a few improvements over the original program.
@@ -36,12 +38,14 @@ their set is preserved and the new player will get their own unique set. If the 
 away decides to come back, all they have to do is put their name back into an entry field and
 the program will recognize that player already has a set to their name. Their set will be pulled
 regardless of which player position they are playing in. 
+
 The next major improvement is that instead of the output being in the format "Player #  Character" 
 it is now in the format "'Player name'   'Character'". This makes it slightly easier to tell who is 
 playing which characterinstead of remembering which player each person is. The output will scale with 
 the amount of people currently playing, meaning if 4 players are currently playing, and one of them 
 steps away, the window will resize appropriately and only randomize and show the results of the randomization 
 for the 3 remaining players. 
+
 A small improvement over the original is the method that is used to clear the
 output each time the randomizer is run. The first iteration just covered the previous results with
 another label with a group of spaces being the text. This iteration changes that by instead of
@@ -52,6 +56,7 @@ running correctly and can be commented out if not needed without any issue. The 
 automatically register any new names when randomized, but will not register a name more than once.
 The clear button works the same as in the previous iteration where all registered players will have
 their played character sets reset. 
+
 The only issue right now with the program is if a player has their name in more than one field it
 will run the randomize code the amount of times they have their name in an entry field. 
 

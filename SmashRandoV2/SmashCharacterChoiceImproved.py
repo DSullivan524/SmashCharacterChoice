@@ -1,13 +1,6 @@
 import tkinter as tk
 import random
 import Character_list2
-import keyboard
-
-background_image = PhotoImage()
-
-#The only changes that could be made, as of now, is to change it somehow
-#where if the same name is entered in 2 different fields, only randomize
-#for them once.
 
 
 def choose_character(curr_player):
@@ -97,26 +90,32 @@ def character_select():
     lbl_player_num.destroy()
 
     i=0
-    for entry in entries: 
+    #This particular list is used to prevent a player from
+    #having multiple characters randomized if they have their
+    #name listed multiple times
+    curr_entries = []
+    
+    for entry in entries:
         #This for loop will iterate through the entry fields present in the window
         if entry.get() in Character_list2.Players:
-            
-            lbl_player_num = tk.Label(master=frm_character, text=(entry.get()), width = 15)
-            if i < 4:
-                lbl_player_num.grid(row=i, column=0, sticky="w")
-            else:
-                lbl_player_num.grid(row=i - 4, column=3, sticky="w")
-            character_num = choose_character(entry.get())
-            labels_players.append(lbl_player_num)
-            
-            #Use the dictionary in Character_list2 to show which character it is
-            lbl_char_num = tk.Label(master = frm_character, text=Character_list2.Characters[character_num], width = 15)
-            if i < 4:
-                lbl_char_num.grid(row=i, column=1, sticky="w")
-            else:
-                lbl_char_num.grid(row=i - 4, column=4, sticky="w")
-            labels_char.append(lbl_char_num)
-            i += 1
+            if entry.get() not in curr_entries:
+                lbl_player_num = tk.Label(master=frm_character, text=(entry.get()), width = 15)
+                if i < 4:
+                    lbl_player_num.grid(row=i, column=0, sticky="w")
+                else:
+                    lbl_player_num.grid(row=i - 4, column=3, sticky="w")
+                character_num = choose_character(entry.get())
+                labels_players.append(lbl_player_num)
+                
+                #Use the dictionary in Character_list2 to show which character it is
+                lbl_char_num = tk.Label(master = frm_character, text=Character_list2.Characters[character_num], width = 15)
+                if i < 4:
+                    lbl_char_num.grid(row=i, column=1, sticky="w")
+                else:
+                    lbl_char_num.grid(row=i - 4, column=4, sticky="w")
+                labels_char.append(lbl_char_num)
+                curr_entries.append(entry.get())
+                i += 1
         
         
 
@@ -177,4 +176,5 @@ window.bind("<Return>", print_players)
 
 # Start the application
 window.mainloop()
+
 

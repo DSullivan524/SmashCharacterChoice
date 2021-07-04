@@ -57,9 +57,6 @@ automatically register any new names when randomized, but will not register a na
 The clear button works the same as in the previous iteration where all registered players will have
 their played character sets reset. 
 
-The only issue right now with the program is if a player has their name in more than one field it
-will run the randomize code the amount of times they have their name in an entry field. 
-
 
 
 

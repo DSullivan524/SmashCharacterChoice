@@ -57,6 +57,13 @@ automatically register any new names when randomized, but will not register a na
 The clear button works the same as in the previous iteration where all registered players will have
 their played character sets reset. 
 
-
+The improved SmashCharacterChoice will now read and write to a text file found in the same directory as
+the program itself. When the code is first started it will check to see if the particular text file 
+already exists. If it does the program will continue, and if not the program will create the text file
+before continuing. The text file the program creates is called Player_list.txt and its purpose is to 
+carry over the players and their used characters between sessions. The program will first read the file 
+and if the file already has preivous data it will update the Player list accordingly. The program will 
+continue normally up until the program is ended. Before the file is closed, the contents of the Player 
+list will be put into this text file to be used the next time this program is run.
 
 

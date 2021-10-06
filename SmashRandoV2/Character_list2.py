@@ -18,7 +18,7 @@ Characters = {1:"Mario", 2:"Donkey Kong", 3:"Link", 4:"Samus",
               69:"King K. Rool", 70:"Isabelle", 71:"Incineroar", 72:"Joker",
               73:"Hero", 74:"Banjo & Kazooie", 75:"Terry", 76:"Byleth",
               77:"Min Min", 78:"Steve", 79:"Sephiroth", 80:"Pyra/Mythra",
-              81:"Kazuya"}
+              81:"Kazuya", 82:"Sora"}
 
 Player1 = []
 Player2 = []

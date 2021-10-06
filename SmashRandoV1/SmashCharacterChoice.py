@@ -7,11 +7,11 @@ import Character_list
 def choose_character(curr_player):
     #Take the player list from Character_List
     curr_player_list = Character_list.Players[curr_player]
-    if len(curr_player_list) >=81:
+    if len(curr_player_list) >=82:
         list_to_delete = Character_list.Players[curr_player]
         list_to_delete.clear()
         Character_list.Players[curr_player] = list_to_delete
-    potential_character = random.randint(1,81)
+    potential_character = random.randint(1,82)
     repeated_character = True
     #The first selection would always be a new character
     if len(curr_player_list) < 1:
@@ -22,7 +22,7 @@ def choose_character(curr_player):
         #Continuously loop and select a new character until one that
         #has not been played before has been selected
         while potential_character in curr_player_list:
-            potential_character = random.randint(1,81)
+            potential_character = random.randint(1,82)
         curr_player_list.append(potential_character)
         Character_list.Players[curr_player] = curr_player_list
         return potential_character

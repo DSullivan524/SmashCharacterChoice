@@ -23,7 +23,7 @@ try:
         curr_player_set = Character_list2.Players[curr_player]
             
         #If the player has played all characters, it will reset their set
-        if len(curr_player_set) >= 81:
+        if len(curr_player_set) >= 82:
             set_to_delete = Character_list2.Players[curr_player]
             set_to_delete.clear()
             Character_list2.Players[curr_player] = set_to_delete
@@ -41,7 +41,7 @@ try:
             #Continuously loop and select a new character until one that
             #has not been played before has been selected
             while potential_character in curr_player_set:
-                potential_character = random.randint(1,81)
+                potential_character = random.randint(1,82)
             curr_player_set.add(potential_character)
             #curr_player_set = set(curr_player_list)
             Character_list2.Players[curr_player] = curr_player_set

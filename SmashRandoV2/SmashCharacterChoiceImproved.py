@@ -30,7 +30,7 @@ try:
             print("Reset the list")
             curr_player_set.clear()
                 
-        potential_character = random.randint(1,81)
+        potential_character = random.randint(1,82)
         repeated_character = True
         #The first selection would always be a new character
         if len(curr_player_set) < 1:
